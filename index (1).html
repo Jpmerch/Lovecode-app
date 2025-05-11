@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LoveCode para Mamá</title>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#ffe6f0">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #ffe6f0;
+      font-family: 'Courier New', monospace;
+      color: #c2185b;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+    .container {
+      background: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      max-width: 90%;
+    }
+    .heart {
+      width: 60px;
+      margin-bottom: 10px;
+    }
+    code {
+      text-align: left;
+      background: #f9f9f9;
+      padding: 15px;
+      border-radius: 10px;
+      overflow-x: auto;
+      font-size: 15px;
+      color: #444;
+      display: block;
+      white-space: pre;
+    }
+    .title {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #e91e63;
+    }
+    .btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #e91e63;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    @media screen and (max-width: 600px) {
+      .title {
+        font-size: 20px;
+      }
+      code {
+        font-size: 13px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="https://cdn-icons-png.flaticon.com/512/833/833472.png" alt="corazón" class="heart">
+    <div class="title">Feliz Día Mamá</div>
+    <code>
+&lt;love&gt;
+  &lt;to&gt;Para: Mamá&lt;/to&gt;
+  &lt;from&gt;Att: Shaira Sanchez&lt;/from&gt;
+  &lt;message&gt;
+    Eres la raíz de todo lo bueno que soy.
+    Gracias por tu amor eterno, por tus consejos,
+    por tu fuerza y tu dulzura.
+    Cada línea de mi vida tiene tu amor escrito.
+    Esta no es solo una carta, es un código que
+    expresa lo infinito que te amo.
+  &lt;/message&gt;
+  &lt;forever&gt;Te amaré hasta el último latido de mi corazón&lt;/forever&gt;
+&lt;/love&gt;
+    </code>
+    <button class="btn" onclick="enviarWhatsApp()">Enviar por WhatsApp</button>
+  </div>
+  <script>
+    function enviarWhatsApp() {
+      const mensaje = `❤️ Feliz Día Mamá ❤️%0A%0A<love>%0A  <to>Para: Mamá</to>%0A  <from>Att: Shaira Sanchez</from>%0A  <message>%0A    Eres la raíz de todo lo bueno que soy.%0A    Gracias por tu amor eterno, por tus consejos,%0A    por tu fuerza y tu dulzura.%0A    Cada línea de mi vida tiene tu amor escrito.%0A    Esta no es solo una carta, es un código que%0A    expresa lo infinito que te amo.%0A  </message>%0A  <forever>Te amaré hasta el último latido de mi corazón</forever>%0A</love>`;
+      const url = `https://wa.me/?text=${mensaje}`;
+      window.open(url, '_blank');
+    }
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('service-worker.js');
+      });
+    }
+  </script>
+</body>
+</html>
